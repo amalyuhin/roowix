@@ -14,12 +14,13 @@ module.controller('MapCtrl', ['$scope', function($scope) {
             behaviors: ['drag']
         });
 
-        var marker = new ymaps.GeoObject({
-            geometry: {
-                type: "Point",
-                coordinates: [54.85109, 83.100674]
-            }
+        var marker = new ymaps.Placemark([54.85109, 83.100674], {}, {
+            iconLayout: 'default#image',
+            iconImageHref: '/img/pin.png',
+            iconImageSize: [62, 67],
+            iconImageOffset: [-22, -62]
         });
+
         marker.events.add('click', function(event) {
             var elem = event.get('target');
             elem.properties.set('balloonContent', "<b>Roowix</b><p>Test</p>");
@@ -31,6 +32,7 @@ module.controller('MapCtrl', ['$scope', function($scope) {
                 left: '85%'
             }
         });
+
         $scope.map.geoObjects.add(marker);
     }
 }]);
