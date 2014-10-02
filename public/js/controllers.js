@@ -23,7 +23,9 @@ module.controller('MapCtrl', ['$scope', function($scope) {
 
         marker.events.add('click', function(event) {
             var elem = event.get('target');
-            elem.properties.set('balloonContent', "<b>Roowix</b><p>Test</p>");
+            var text = "<strong>Roowix</strong><p>г. Новосибирск, Академгородок,<br/>проспект Академика Лаврентьева, 6/1, оф. 801</p>";
+
+            elem.properties.set('balloonContent', text);
         });
 
         $scope.map.controls.add("zoomControl", {
