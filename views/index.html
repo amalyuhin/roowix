@@ -16,6 +16,7 @@
     <link href="css/main.css" rel="stylesheet">
 
     <script src="js/scroll.js"></script>
+    <script src="http://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
 </head>
 <body ng-class="{'': isActiveNavMenu, 'hide-navbar': !isActiveNavMenu}">
 
@@ -69,8 +70,9 @@
     <section class="screen vacancy" id="vacancy">v
         <div class="wrap">3</div>
     </section>
-    <section class="screen contacts">
-        <script type="text/javascript" charset="utf-8" src="http://api-maps.yandex.ru/services/constructor/1.0/js/?sid=ucocYINMwnXp2DYjqov1HNOGteXTutSc&width=100%"></script>
+    <section class="screen contacts" ng-controller="MapCtrl">
+        <div id="map" style="width: 100%; height:100%;"></div>
+        <!--<script type="text/javascript" charset="utf-8" src="http://api-maps.yandex.ru/services/constructor/1.0/js/?sid=ucocYINMwnXp2DYjqov1HNOGteXTutSc&width=100%"></script>-->
     </section>
 
 </div>
