@@ -1,0 +1,10 @@
+{
+  "name": "roowix",
+  "version": "0.0.1",
+  "dependencies": {
+    "express": "latest",
+    "mongoose": "latest",
+    "swig": "~1.4.2",
+    "error-handler": "~1.0.0"
+  }
+}
