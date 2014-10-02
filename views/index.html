@@ -1,10 +1,90 @@
 <!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
+<html ng-app="roowixApp">
+<head>
+    <meta charset="utf-8" />
+    <!--[if lt IE 9]><script src="js/html5.js"></script><![endif]-->
     <title></title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width">
+
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic&subset=latin,cyrillic,cyrillic-ext' rel='stylesheet' type='text/css'>
+
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+
+    <link href="css/normalize.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+
+    <script src="js/scroll.js"></script>
 </head>
-<body>
-    <h1>Hello, {{ user }}! </h1>
+<body ng-class="{'': isActiveNavMenu, 'hide-navbar': !isActiveNavMenu}">
+
+<div class="wrapper">
+
+    <nav class="main-navigation">
+        <a href="javascript:" class="toggleNav" ng-click="toggleNavMenu()"><span class="icon-menu"></span></a>
+        <a href="javascript:" class="logo"><span class="icon-logo"></span></a>
+        <ul class="nav">
+            <li>
+                <a href="javascript:">
+                    <span class="icon-whatwedo"></span>
+                    <span class="text">что делаем</span>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:">
+                    <span class="icon-vacancy"></span>
+                    <span class="text">вакансии</span>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:">
+                    <span class="icon-contacts"></span>
+                    <span class="text">контакты</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <section class="screen first">
+
+        <div class="start">
+            <div class="company">
+                <img src="images/logo.png" alt=""/>
+                <p>Development company</p>
+            </div>
+            <div class="brain">
+                <img src="images/brain.png" alt=""/>
+            </div>
+            <h1 class="title">Мы изменим представление о ваших возможностях</h1>
+            <div class="sp"></div>
+        </div>
+
+    </section>
+    <section class="screen second" id="second">
+        <div class="wrap text-center">
+            <h1 class="title">Что делаем</h1>
+        </div>
+    </section>
+    <section class="screen vacancy" id="vacancy">v
+        <div class="wrap">3</div>
+    </section>
+    <section class="screen contacts">
+        <script type="text/javascript" charset="utf-8" src="http://api-maps.yandex.ru/services/constructor/1.0/js/?sid=ucocYINMwnXp2DYjqov1HNOGteXTutSc&width=100%"></script>
+    </section>
+
+</div>
+
+<script src="components/jquery/dist/jquery.min.js"></script>
+<script src="components/jquery-ui/jquery-ui.min.js"></script>
+<script src="components/angular/angular.js"></script>
+<script src="js/app.js"></script>
+<script src="js/controllers.js"></script>
+<script src="js/directives.js"></script>
+<script src="js/filters.js"></script>
+<script src="js/services.js"></script>
+<script src="js/main.js"></script>
+
+
 </body>
 </html>
