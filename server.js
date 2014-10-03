@@ -4,8 +4,9 @@
  */
 var express = require('express'),
     errorHandler = require('error-handler'),
-    routes = require('./routes'),
-    api = require('./routes/api'),
+    bodyParser = require('body-parser');
+    routes = require('./routes/index'),
+    apiRoutes = require('./routes/api'),
     swig = require('swig'),
     http = require('http'),
     path = require('path');
@@ -24,6 +25,7 @@ app.set('view engine', 'html');
 app.set('views', __dirname + '/views');
 app.set('view cache', false);
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(bodyParser.json());
 
 var env = process.env.NODE_ENV || 'development';
 
@@ -32,13 +34,15 @@ var env = process.env.NODE_ENV || 'development';
  */
 
 // serve index and view partials
-app.get('/', routes.index);
+//app.use('/', routes.index);
+routes(app);
+apiRoutes(app);
 
 // JSON API
 //app.get('/api/name', api.name);
 
 // redirect all others to the index (HTML5 history)
-app.get('*', routes.index);
+//app.get('*', routes.index);
 
 function handleError (req, res, err) {
     req.log.error({ err: err }, err.stack);

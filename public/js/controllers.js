@@ -2,9 +2,14 @@
 
 var module = angular.module('roowixApp.controllers', []);
 
-module.controller('MapCtrl', ['$scope', function($scope) {
+module.controller('MapCtrl', ['$scope', 'ApiService', function($scope, api) {
     ymaps.ready(init);
     $scope.map = {};
+
+    $scope.message = {};
+    $scope.submit = function() {
+        api.sendMessage($scope.message);
+    };
 
     function init() {
         $scope.map = new ymaps.Map("map", {
