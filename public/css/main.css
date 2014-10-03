@@ -20,6 +20,9 @@ img{ vertical-align: middle;}
 .text-left{ text-align: left !important; }
 
 .sp{ clear: both; width: 160px; height: 21px; background: url("/img/sprite.png") 0 -98px no-repeat; margin: 20px auto; }
+
+.grid4{ float: left; width: 32%; }
+.grid4 + .grid4{ margin-left: 2%;}
 /* Main Navigation
 -----------------------------------------------------------------------------*/
 .main-navigation{ width: 130px; padding:20px 10px; text-align: center; background: #474f57; color: #fff; position: fixed; z-index: 99; left: 0; top: 0; bottom: 0;  -webkit-transition: all 1.7s; transition: all 1.7s;}
@@ -61,15 +64,15 @@ img{ vertical-align: middle;}
 
 /* Screens
 -----------------------------------------------------------------------------*/
-.screen{ min-height: 100%; height: 100%;  width: 100%; position: relative; left: 0; right: 0; top: 0; bottom: 0; z-index: 12;}
+.screen{ min-height: 100%; z-index: 12;   width: 100%; position: relative; }
 .screen .title{ font-size:225%; font-weight:300; margin:40px 0; color: #fff;  }
 
 /* Start screen
 -----------------------------------------------------------------------------*/
 
-.screen.first{ background: #46bfd5; position: fixed; z-index: 10; left: 0px;  }
+.screen.first{ background: #46bfd5; position: fixed; z-index: 10; left: 0px; right: 0; top: 0; bottom: 0; }
 
-.start{ text-align: center; color: #fff; position: absolute; top: 0; bottom: 0; left: 130px; right: 0; width: 50%; height: 50%; margin: auto; -webkit-transition: left 0.5s; transition: left 0.5s;  }
+.start{ text-align: center; color: #fff; position: absolute; top: 0; bottom: 0; left: 130px; right: 0; width: 50%; height: 58%; margin: auto; -webkit-transition: left 0.5s; transition: left 0.5s;  }
 .hide-navbar .start{ left: 52px;}
 .start .company p{ margin: 10px 0 30px 0; text-transform: uppercase; font-size: 68.8%; font-weight: 300; }
 .start .brain{ border-bottom: 1px solid #1d98ae;}
@@ -77,16 +80,41 @@ img{ vertical-align: middle;}
 /* What we do screen
 -----------------------------------------------------------------------------*/
 
-.screen.second{ background: #7bd18f; border-top:1px solid #fff; }
+.second{ background: #7bd18f; border-top:1px solid #fff; }
 
 /* Vacancy screen
 -----------------------------------------------------------------------------*/
 
-.screen.vacancy{ background: #f5f5f5;}
+.vacancy{ background: #f5f5f5; padding:50px 0;}
+.vacancy .title{ margin-top: 0; margin-bottom:10px; color: #474f57; text-align: center;}
+.vacancy .subtitle{ color: #474f57; text-align: center; font-size: 115%; margin: 0 0 50px 0;}
+
+.vacancy-list{ list-style: none; padding: 0; margin: 0 0 50px 0; border-top: 1px solid #dbdcdd; }
+.vacancy-list > li{ border-bottom: 1px solid #dbdcdd; margin-bottom: 1px; }
+.vacancy-list > li .header{ margin: 0; font-size: 150%;  font-weight: 500; line-height: 1; padding: 16px 0; position: relative; outline: 0 none; cursor: pointer;}
+.vacancy-list > li .header small{ font-size: 100%;  font-weight: 100;}
+.vacancy-list > li .header .icon-plus{ float: right;}
+.vacancy-list > li .header .icon-minus{ float: right; margin-top: 8px; display: none;}
+.vacancy-list > li .header.ui-state-active .icon-minus{ display: block;}
+.vacancy-list > li .header.ui-state-active .icon-plus{ display: none;}
+.vacancy-list > li strong{ display: block; margin-bottom: 10px;}
+.vacancy-list > li p{ margin: 0 0 10px 0;}
+
+.ui-accordion-content{ margin-top: 15px; padding-bottom: 15px; }
+
+.personal-skills,
+.requirements{ list-style: none; padding: 0; margin: 0; }
+.personal-skills li,
+.requirements li{ padding-left: 15px; position: relative; margin-bottom: 10px;}
+.personal-skills li:before,
+.requirements li:before{ content: ''; background: url("../img/sprite.png") -113px -119px no-repeat; width: 9px; height: 8px; position: absolute; left: 0; top:5px; }
+
+
+.personal-skills li:before{ width: 9px; height: 7px; background-position:-122px -119px; }
 
 /* Contacts screen
 -----------------------------------------------------------------------------*/
-.screen.contacts{ position: fixed; z-index: 9; left: 0px;}
+.screen.contacts{ position: fixed; z-index: 9; left: 0; right: 0; top: 0; bottom: 0; }
 .screen.contacts.show{ z-index: 11; }
 
 #map{ width: 100%; height: 100%; }
@@ -147,6 +175,8 @@ a:hover .icon-contacts{ background-position: -163px -49px; }
 
 .icon-username{ width:14px; height:20px; background-position: -131px -119px; margin-left: 5px; }
 .icon-email{ width:20px; height:20px; background-position: -145px -119px; }
+.icon-minus{ width:20px; height:3px; background-position: -198px -98px; }
+.icon-plus{ width:20px; height:20px; background-position: -93px -119px; }
 
 
 
@@ -159,7 +189,13 @@ a:hover .icon-contacts{ background-position: -163px -49px; }
     .contact-form-box .contact-form textarea{ min-height: 220px;}
 }
 @media (max-width: 750px) {
+    .start{ height: 80%;}
     .contact-form-box .vcard{ float: none; width: 100%; max-width: 100%; }
     .contact-form-box .vcard img{float: left; width: 50%;}
     .contact-form-box .vcard .adr{ padding: 5%; overflow: hidden;}
+}
+@media (max-width: 500px) {
+    .start{ height: 58%;}
+    .grid4{ float: none; width: 100%;}
+    .start .brain{ display: none;}
 }
