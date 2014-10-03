@@ -71,8 +71,33 @@
         <div class="wrap">3</div>
     </section>
     <section class="screen contacts" ng-controller="MapCtrl">
-        <div id="map" style="width: 100%; height:100%;"></div>
-        <!--<script type="text/javascript" charset="utf-8" src="http://api-maps.yandex.ru/services/constructor/1.0/js/?sid=ucocYINMwnXp2DYjqov1HNOGteXTutSc&width=100%"></script>-->
+        <div id="map"></div>
+        <div class="contact-form-box">
+            <div class="vcard">
+                <img src="/img/academ.jpg" alt=""/>
+                <address class="adr">
+                    <span class="fn org">ООО Roowix</span>
+                    <span class="country-name">Россия</span>,
+                    <span class="locality">г. Новосибирск</span>,<br/>
+                    <span class="street-address">проспект Академика Лаврентьева, 6/1,</span>
+                    <span class="extended-address"> оф. 801</span>
+                </address>
+            </div>
+            <form action="#1" class="contact-form">
+                <div class="clearfix">
+                    <div class="input-wrap">
+                        <input type="text" value="" placeholder="Ваше имя"/>
+                        <span class="icon-username"></span>
+                    </div>
+                    <div class="input-wrap">
+                        <input type="text" value="" placeholder="Ваш e-mail"/>
+                        <span class="icon-email"></span>
+                    </div>
+                </div>
+                <textarea rows="1" placeholder="Текст сообщения"></textarea>
+                <button type="submit" class="btn">Отправить</button>
+            </form>
+        </div>
     </section>
 
 </div>
