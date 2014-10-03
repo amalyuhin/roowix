@@ -83,18 +83,18 @@
                     <span class="extended-address"> оф. 801</span>
                 </address>
             </div>
-            <form action="#1" class="contact-form">
+            <form class="contact-form" ng-submit="submit()">
                 <div class="clearfix">
                     <div class="input-wrap">
-                        <input type="text" value="" placeholder="Ваше имя"/>
+                        <input ng-model="message.username" type="text" value="" placeholder="Ваше имя"/>
                         <span class="icon-username"></span>
                     </div>
                     <div class="input-wrap">
-                        <input type="text" value="" placeholder="Ваш e-mail"/>
+                        <input ng-model="message.email" type="text" value="" placeholder="Ваш e-mail"/>
                         <span class="icon-email"></span>
                     </div>
                 </div>
-                <textarea rows="1" placeholder="Текст сообщения"></textarea>
+                <textarea ng-model="message.text" rows="1" placeholder="Текст сообщения"></textarea>
                 <button type="submit" class="btn">Отправить</button>
             </form>
         </div>
