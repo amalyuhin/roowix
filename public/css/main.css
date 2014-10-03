@@ -97,7 +97,7 @@ img{ vertical-align: middle;}
     filter: gray;
     -webkit-filter: grayscale(95%);
 }
-.contact-form-box{  position: absolute; top: 0; bottom: 0; left: 130px; right: 0; width: 50%; height: 50%; margin: auto; }
+.contact-form-box{  position: absolute; top: 0; bottom: 0; left: 130px; right: 0; width: 50%; height: 30%; margin: auto; }
 .contact-form-box .vcard{ float: left; max-width: 280px; background: #f7bd45;  overflow: hidden;}
 .contact-form-box .vcard img{ display: block; height: 100%; }
 .contact-form-box .vcard .adr{ padding: 10%; font-size: 100%; font-style: normal; color: #474f57; font-weight: 300; }
