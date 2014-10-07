@@ -12,8 +12,8 @@ services
             return $http({
                 url: this.baseUrl + method,
                 method: 'POST',
-                data: $.param(data),
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+                data: data,
+                headers: { 'Content-Type': 'application/json' }
             });
         };
 
@@ -26,7 +26,7 @@ services
         };
 
         ApiService.sendMessage = function(message) {
-            this.post('message', message);
+            return this.post('message', message);
         };
 
         return ApiService;

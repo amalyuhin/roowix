@@ -8,7 +8,9 @@ module.controller('MapCtrl', ['$scope', 'ApiService', function($scope, api) {
 
     $scope.message = {};
     $scope.submit = function() {
-        api.sendMessage($scope.message);
+        api.sendMessage($scope.message).success(function(response) {
+            console.log(response);
+        });
     };
 
     function init() {
