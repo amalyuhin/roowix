@@ -1,5 +1,6 @@
 
 var mongoose = require('mongoose');
+var bcrypt = require('bcrypt');
 
 mongoose.connect('mongodb://localhost/roowix');
 
@@ -24,4 +25,32 @@ var MessageSchema = new Schema({
 var MessageModel = mongoose.model('Message', MessageSchema);
 
 
+var UserSchema = new Schema({
+    username: { type: String, require: true, index: { unique: true } },
+    password: { type: String, require: true }
+});
+
+UserSchema.methods.cryptPassword = function(password) {
+    if (password.length > 0) {
+        var cryptedPassword = '';
+        try {
+            cryptedPassword = bcrypt.hashSync(password, 8);
+        } catch (err) {
+            console.log(err);
+        }
+
+        if (cryptedPassword.length > 0) {
+            this.password = cryptedPassword;
+        }
+    }
+};
+
+UserSchema.methods.isValidPassword = function(password) {
+    return bcrypt.compareSync(password, this.password);
+};
+
+var UserModel = mongoose.model('User', UserSchema);
+
+
 module.exports.MessageModel = MessageModel;
+module.exports.UserModel = UserModel;

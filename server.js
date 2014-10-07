@@ -7,6 +7,7 @@ var express = require('express'),
     bodyParser = require('body-parser');
     routes = require('./routes/index'),
     apiRoutes = require('./routes/api'),
+    adminRoutes = require('./routes/admin'),
     swig = require('swig'),
     http = require('http'),
     path = require('path');
@@ -37,6 +38,7 @@ var env = process.env.NODE_ENV || 'development';
 //app.use('/', routes.index);
 routes(app);
 apiRoutes(app);
+adminRoutes(app);
 
 // JSON API
 //app.get('/api/name', api.name);
