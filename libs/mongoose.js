@@ -1,6 +1,6 @@
 
 var mongoose = require('mongoose');
-var bcrypt = require('bcrypt');
+var bcrypt = require('bcrypt-nodejs');
 
 mongoose.connect('mongodb://localhost/roowix');
 
@@ -34,7 +34,7 @@ UserSchema.methods.cryptPassword = function(password) {
     if (password.length > 0) {
         var cryptedPassword = '';
         try {
-            cryptedPassword = bcrypt.hashSync(password, 8);
+            cryptedPassword = bcrypt.hashSync(password);
         } catch (err) {
             console.log(err);
         }
