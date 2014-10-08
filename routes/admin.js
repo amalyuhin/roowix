@@ -5,25 +5,36 @@
 var UserModel = require('../libs/mongoose').UserModel;
 
 module.exports = function(app) {
-    app.get('/admin/test', function(req, res) {
-        var user = new UserModel({username: 'test'});
-        user.cryptPassword('qwerty');
+    app.get('/admin/test-user', function(req, res) {
+        var data = {
+            username: 'test',
+            password: 'test'
+        };
 
-        res.render('admin', { is_valid: user.isValidPassword('qwerty') });
-    });
+        UserModel.findOne({ username: data.username }, function(err, user) {
+            if (!err) {
+                if (user) {
+                    console.log(user);
+                    res.end('User already exist.');
+                } else {
+                    var testUser = new UserModel({username: data.username});
+                    testUser.cryptPassword(data.password);
 
-    app.post('/admin/login', function(req, res) {
-        UserModel.find({ username: req.body.username || '' }, function(err, user) {
-            if (user && user.isValidPassword(req.body.password || '')) {
-                res.json({ status: 'success' });
-            } else {
-                var data = { status: 'error' };
-                if (err) {
-                    data.message = err.message;
+                    testUser.save(function(err, newUser) {
+                        if (err) {
+                            res.end('Error: ' + err.message);
+                        } else {
+                            res.end('User ' + newUser.username + ' successfully created.');
+                        }
+                    });
                 }
-
-                res.json(data);
+            } else {
+                res.end('Error: ' + err.message);
             }
         });
+    });
+
+    app.get('/admin', function(req, res) {
+        res.render('admin');
     });
 };

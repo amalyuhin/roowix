@@ -3,6 +3,7 @@
  */
 
 var MessageModel = require('../libs/mongoose').MessageModel;
+var UserModel = require('../libs/mongoose').UserModel;
 
 module.exports = function(app) {
     app.post('/api/message', function(req, res) {
@@ -24,5 +25,21 @@ module.exports = function(app) {
                 res.json(data);
             }
         });
+    });
+
+    app.post('/api/admin/login', function(req, res) {
+
+        //UserModel.find({ username: req.body.username || '' }, function(err, user) {
+        //    if (user && user.isValidPassword(req.body.password || '')) {
+        //        res.json({ status: 'success' });
+        //    } else {
+        //        var data = { status: 'error' };
+        //        if (err) {
+        //            data.message = err.message;
+        //        }
+        //
+        //        res.json(data);
+        //    }
+        //});
     });
 };

@@ -4,7 +4,8 @@ angular.module('roowixApp', [
     'roowixApp.filters',
     'roowixApp.services',
     'roowixApp.directives',
-    'roowixApp.controllers'
+    'roowixApp.controllers',
+    'ui.bootstrap'
 ]).
 
 run(function($rootScope) {
